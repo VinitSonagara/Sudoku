@@ -1,0 +1,51 @@
+<div [ngClass]="{'mainBox':true}">
+    <div [ngClass]="{'row':true}" *ngFor="let row of sudokuRows;let i=index;">
+        <div *ngFor="let num of row;let j=index;">
+            <div attr.id="r{{i}}c{{j}}" 
+                 [ngClass]="{'dataBox':true,'permData':true}" 
+                 *ngIf="num!==0;else fillBlock">
+                 {{num}}
+            </div>
+
+            <ng-template #fillBlock>
+                <input  (keyup)="onKey($event)" 
+                        (click)="onClick($event)"
+                        attr.id="r{{i}}c{{j}}" 
+                        [ngClass]="{'dataBox':true}"
+                        type="number"   
+                        *ngIf="!notes;else notesBlock"/>                                                     
+            </ng-template> 
+
+            <ng-template #notesBlock>  
+                <div 
+                    attr.id="r{{i}}c{{j}}" 
+                    [ngClass]="{'notesOuterBox':true}"
+                    > 
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b0" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b1" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b2" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b3" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b4" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b5" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b6" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b7" class="notesBox" type="number" >
+                    <input (click)="notesClicked($event)" attr.id="r{{i}}c{{j}}b8" class="notesBox" type="number" >
+                </div> 
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

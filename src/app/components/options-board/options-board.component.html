@@ -1,0 +1,58 @@
+<div>
+    <button (click)="newGame($event)">NEW GAME</button>
+    <div *ngFor="let option of optionsArr;let i = index;">
+        <div class="option" 
+             attr.id="o{{i}}" 
+             (click)="onClick($event,i)"
+             >
+             <small *ngIf="i===9 && isNotes;else elseBlock">On</small>
+             <ng-template #elseBlock>
+                <small *ngIf="i===9">Off</small> 
+             </ng-template>  
+             {{option}}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="new massive ui button">
+        NEW GAME
+    </div>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="number">1</td>
+                    <td class="number">2</td>
+                    <td class="number">3</td>
+                </tr>
+                <tr>
+                    <td class="number">4</td>
+                    <td class="number">5</td>
+                    <td class="number">6</td>
+                </tr>
+                <tr>
+                    <td class="number">7</td>
+                    <td class="number">8</td>
+                    <td class="number">9</td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td>Undo</td>
+                    <td>Erase</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
